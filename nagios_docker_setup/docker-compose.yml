@@ -1,0 +1,30 @@
+version: '3.8'
+
+networks:
+  nagios-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.25.0/24
+  
+volumes:
+  nagios-server-data-volume:
+
+
+services:
+  nagios-server:
+    container_name: nagios-server-container
+    privileged: true
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      nagios-network:
+        ipv4_address: 192.168.25.2
+
+    volumes:
+      - type: volume
+        source: nagios-server-data-volume
+        target: /nagios-data
+    
+    command: /lib/systemd/systemd
