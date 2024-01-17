@@ -1,3 +1,5 @@
+#use 'sudo bash -x setup.bash' to execute the script
+
 #!/bin/bash
 
 cd /home/dockeradm/Desktop
