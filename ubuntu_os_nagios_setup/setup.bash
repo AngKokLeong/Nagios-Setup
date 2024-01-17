@@ -1,4 +1,5 @@
 #use 'sudo bash -x setup.bash' to execute the script
+# there should be a user 'dockeradm' in the ubuntu OS
 
 #!/bin/bash
 
