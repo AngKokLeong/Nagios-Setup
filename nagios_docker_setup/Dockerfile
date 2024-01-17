@@ -18,7 +18,7 @@ RUN ls /usr/share/zoneinfo && \
 cp /usr/share/zoneinfo/Singapore /etc/localtime && \
 echo "Asia/Singapore" > /etc/timezone 
 
-RUN apt-get install -yq autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev
+RUN apt-get install -yq autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev openssl libssl-dev
 
 
 
