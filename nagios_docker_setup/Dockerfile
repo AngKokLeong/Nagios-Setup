@@ -12,11 +12,11 @@ RUN apt-get update -yq
 
 #https://stackoverflow.com/questions/57607381/how-do-i-change-timezone-in-a-docker-container
 RUN apt-get install tzdata -yq
-ENV TZ="Asia/Singapore"
+ENV TZ="Singapore"
 
 RUN ls /usr/share/zoneinfo && \
 cp /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
-echo "Asia/Singapore" >  /etc/timezone && \
+echo "Singapore" >  /etc/timezone && \
 
 RUN apt-get install -yq autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev
 
