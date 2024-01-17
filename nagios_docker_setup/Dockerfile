@@ -31,7 +31,7 @@ RUN wget --inet4-only --content-disposition 'https://go.nagios.org/get-core/4-5-
 RUN tar -xzvf nagios-4.5.0.tar.gz
 RUN rm nagios-4.5.0.tar.gz
 
-RUN cd nagios-4.5.0
+WORKDIR /nagios/nagios-4.5.0
 
 RUN ./configure --with-httpd-conf=/etc/apache2/sites-enabled
 
@@ -41,7 +41,7 @@ RUN make all
 RUN useradd nagios
 RUN usermod -a -G nagios www-data
 
-RUN cd /nagios
+WORKDIR /nagios
 
 # Setup Nagios Plugin
 
