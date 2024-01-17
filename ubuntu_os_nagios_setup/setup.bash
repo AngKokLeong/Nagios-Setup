@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/Desktop
+cd /home/dockeradm/Desktop
 
 apt-get update -yq
 
@@ -21,7 +21,7 @@ make all
 useradd nagios
 usermod -a -G nagios www-data
 
-cd ~/Desktop
+cd /home/dockeradm/Desktop
 
 wget --inet4-only --content-disposition 'https://github.com/nagios-plugins/nagios-plugins/archive/refs/tags/2.4.8.tar.gz' -O nagios-plugins-2.4.8.tar.gz
 
