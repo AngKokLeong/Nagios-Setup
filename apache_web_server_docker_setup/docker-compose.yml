@@ -17,6 +17,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    
+    hostname: apache-server
 
     networks:
       web-server-network:
