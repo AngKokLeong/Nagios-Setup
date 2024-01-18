@@ -23,7 +23,6 @@ services:
     privileged: true
 
     environment:
-      POSTGRES_PASSWORD: password
       PGDATA: /var/lib/postgresql/data
       POSTGRES_DB: testdb
       POSTGRES_USER: postgres
@@ -31,9 +30,10 @@ services:
 
 
     volumes:
-      postgres-server-data-volume:
+      - type: volume
+        source: apache-server-data-volume
         target: /var/lib/postgresql/data
-      
+    
     networks:
       database-network:
         ipv4_address: 192.168.100.2
