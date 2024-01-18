@@ -52,4 +52,9 @@ services:
         protocol: tcp
         mode: host
 
+      - target: 22
+        published: 22
+        protocol: tcp
+        mode: host
+
     
