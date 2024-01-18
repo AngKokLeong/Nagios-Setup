@@ -1,0 +1,48 @@
+version: '3.8'
+
+
+networks:
+  database-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.100.0/24
+
+
+  
+volumes:
+  postgres-server-data-volume:
+
+
+services:
+  postgres-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    privileged: true
+
+    environment:
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: testdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+
+    volumes:
+      postgres-server-data-volume:
+        target: /var/lib/postgresql/data
+      
+    networks:
+      database-network:
+        ipv4_address: 192.168.100.2
+    
+    ports:
+      - target: 8080
+        host_ip: 127.0.0.1
+        published: 11000
+        protocol: tcp
+        mode: host
+
+    
