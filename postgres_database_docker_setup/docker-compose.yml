@@ -31,7 +31,7 @@ services:
 
     volumes:
       - type: volume
-        source: apache-server-data-volume
+        source: postgres-server-data-volume
         target: /var/lib/postgresql/data
     
     networks:
