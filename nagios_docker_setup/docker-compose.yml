@@ -28,4 +28,4 @@ services:
         target: /nagios-data
     
     #need to find another command to ensure the docker container keeps running
-    command: /bin/bash
+    command: /lib/systemd/systemd
