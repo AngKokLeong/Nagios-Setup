@@ -1,10 +1,5 @@
 FROM ubuntu:22.04
 
-
-
-
-
-
 WORKDIR /nagios
 
 RUN apt-get update -yq
@@ -14,14 +9,13 @@ RUN apt-get update -yq
 RUN apt-get install tzdata -yq
 ENV TZ="Asia/Singapore"
 
+# Configure Timezone in the container
 RUN ls /usr/share/zoneinfo && \
 cp /usr/share/zoneinfo/Singapore /etc/localtime && \
 echo "Asia/Singapore" > /etc/timezone 
 
-RUN apt-get install -yq autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev openssl libssl-dev
-
-
-
+#OpenSSL and libssl-dev helps to resolve the SSL problem
+RUN apt-get install -yq autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev openssl libssl-dev systemd
 
 #Setup Nagios
 
