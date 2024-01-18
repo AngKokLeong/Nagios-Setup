@@ -20,7 +20,7 @@ services:
 
     networks:
       web-server-network:
-      ipv4_address: 192.168.200.2
+        ipv4_address: 192.168.200.2
 
     ports:
       - target: 80
