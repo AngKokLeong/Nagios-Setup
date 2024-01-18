@@ -1,0 +1,35 @@
+version: '3.8'
+
+networks:
+  web-server-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.200.0/24
+  
+volumes:
+  apache-server-data-volume:
+
+services:
+  apache-server:
+    container_name: apache-httpd
+    privileged: true
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8888:80
+      - 443:443
+    networks:
+      web-server-network:
+        ipv4-network: 192.168.200.2
+    volumes:
+      - type: volume
+        source: apache-server-data-volume
+        target: /usr/local/apache2/
+
+    #This file path is derived from the github link below Line 236
+    #https://github.com/docker-library/httpd/blob/338f9a4b1e36e09ad2733f36f19e31157f5c959c/2.4/Dockerfile
+    command: /usr/local/bin/httpd-foreground
+
+    
