@@ -21,6 +21,7 @@ services:
       dockerfile: Dockerfile
     
     container_name: postgres-server
+    hostname: postgres-server
 
     privileged: true
 
@@ -42,8 +43,12 @@ services:
     
     ports:
       - target: 8080
-        host_ip: 127.0.0.1
         published: 11000
+        protocol: tcp
+        mode: host
+
+      - target: 5432
+        published: 12000
         protocol: tcp
         mode: host
 
