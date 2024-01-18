@@ -45,6 +45,6 @@ services:
 
     #This file path is derived from the github link below Line 236
     #https://github.com/docker-library/httpd/blob/338f9a4b1e36e09ad2733f36f19e31157f5c959c/2.4/Dockerfile
-    command: /usr/local/bin/httpd-foreground
+    command: /lib/systemd/systemd
 
     
