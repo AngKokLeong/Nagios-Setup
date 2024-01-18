@@ -34,7 +34,7 @@ services:
         mode: host
       
       - target: 22
-        published: 22
+        published: 9998
         protocol: tcp
         mode: host
         
