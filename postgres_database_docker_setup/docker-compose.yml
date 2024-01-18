@@ -20,6 +20,8 @@ services:
       context: .
       dockerfile: Dockerfile
     
+    container_name: postgres-server
+
     privileged: true
 
     environment:
