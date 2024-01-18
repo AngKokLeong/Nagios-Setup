@@ -27,4 +27,5 @@ services:
         source: nagios-server-data-volume
         target: /nagios-data
     
-    command: /lib/systemd/systemd
+    #need to find another command to ensure the docker container keeps running
+    command: /bin/bash
