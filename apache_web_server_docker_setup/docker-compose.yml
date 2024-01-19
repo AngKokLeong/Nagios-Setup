@@ -39,7 +39,10 @@ services:
         published: 9998
         protocol: tcp
         mode: host
-        
+    
+    extra_hosts:
+      - "dockeradm:172.20.113.42"
+
     volumes:
       - type: volume
         source: apache-server-data-volume
