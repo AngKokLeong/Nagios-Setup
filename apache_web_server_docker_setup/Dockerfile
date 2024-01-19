@@ -20,7 +20,7 @@ FROM apache-server-build-stage AS prepare-file-stage
 
 COPY sshd_config /etc/ssh/sshd_config.d
 
-RUN useradd nagios -d /home/nagios -g nagios -p password
+RUN useradd nagios -m -U -p password
 
 WORKDIR /
 
