@@ -17,8 +17,8 @@ echo "Asia/Singapore" > /etc/timezone
 RUN apt-get install openssh-server systemd nano -yq
 
 RUN if test ! -d /etc/ssh/sshd_config.d; then \  
-        mkdir /etc/ssh/sshd_config.d /
-        cat sshd_config > /etc/ssh/sshd_config.d\
+        mkdir /etc/ssh/sshd_config.d \
+        cat sshd_config > /etc/ssh/sshd_config.d \
     else \
         cat sshd_config > /etc/ssh/sshd_config.d \
     fi
