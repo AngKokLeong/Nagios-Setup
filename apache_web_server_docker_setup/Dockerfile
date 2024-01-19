@@ -18,7 +18,7 @@ RUN apt-get install openssh-server systemd nano -yq
 
 FROM apache-server-build-stage AS prepare-file-stage
 
-COPY sshd_config /etc/ssh/sshd_config.d
+RUN cat sshd_config >> /etc/ssh/sshd_config.d/passwordless_configuration.conf
 
 RUN useradd nagios -m -U -p password
 
