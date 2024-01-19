@@ -18,4 +18,4 @@ RUN apt-get install openssh-server systemd -yq
 
 COPY sshd_config /etc/ssh
 
-RUN systemctl restart ssh
+
