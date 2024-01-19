@@ -18,6 +18,9 @@ echo "Asia/Singapore" > /etc/timezone
 
 RUN apt-get install openssh-server systemd nano -yq
 
-RUN copy_sshd_config.sh
+WORKDIR /
+
+ONBUILD COPY sshd_config /etc/ssh/sshd_config.d
+
 
 
