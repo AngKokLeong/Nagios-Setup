@@ -57,6 +57,8 @@ services:
         published: 9999
         protocol: tcp
         mode: host
-
+    
+    extra_hosts:
+      - "dockeradm:172.20.113.42"
     
     command: /lib/systemd/systemd
