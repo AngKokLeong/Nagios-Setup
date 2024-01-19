@@ -16,6 +16,6 @@ echo "Asia/Singapore" > /etc/timezone
 
 RUN apt-get install openssh-server systemd nano -yq
 
-RUN cat sshd_config > /etc/ssh/sshd_config.d/passwordless.conf
+COPY sshd_config /
 
-
+CMD ["cat sshd_config > /etc/ssh/sshd_config.d/passwordless.conf"]
