@@ -12,16 +12,14 @@ RUN ls /usr/share/zoneinfo && \
 cp /usr/share/zoneinfo/Singapore /etc/localtime && \
 echo "Asia/Singapore" > /etc/timezone 
 
-RUN apt-get install openssh-server systemd nano -yq
-
-
+RUN apt-get install openssh-server systemd nano iputils-ping -yq
 
 FROM apache-server-build-stage AS prepare-file-stage
 
 COPY sshd_config /etc/ssh/sshd_config.d
-#RUN mv /etc/ssh/sshd_config.d/sshd_config /etc/ssh/sshd_config.d/passwordless_configuration.conf
 
-RUN useradd nagios -m -U -p password
+RUN useradd nagios -m -U 
+RUN echo nagios:password | chpasswd
 
 WORKDIR /
 
