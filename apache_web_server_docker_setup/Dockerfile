@@ -4,6 +4,8 @@ RUN echo $HTTPD_PREFIX
 
 COPY ./public-html/ /usr/local/apache2/htdocs/
 
+
+
 RUN apt-get update -yq
 #https://stackoverflow.com/questions/57607381/how-do-i-change-timezone-in-a-docker-container
 RUN apt-get install tzdata -yq
@@ -16,11 +18,6 @@ echo "Asia/Singapore" > /etc/timezone
 
 RUN apt-get install openssh-server systemd nano -yq
 
-RUN if test ! -d /etc/ssh/sshd_config.d; then \  
-        mkdir /etc/ssh/sshd_config.d \
-        cat sshd_config > /etc/ssh/sshd_config.d \
-    else \
-        cat sshd_config > /etc/ssh/sshd_config.d \
-    fi
+RUN bash -x copy_sshd_config.bash
 
 
