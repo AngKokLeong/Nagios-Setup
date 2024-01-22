@@ -12,7 +12,7 @@ RUN ls /usr/share/zoneinfo && \
 cp /usr/share/zoneinfo/Singapore /etc/localtime && \
 echo "Asia/Singapore" > /etc/timezone 
 
-RUN apt-get install openssh-server systemd nano iputils-ping wget make -yq
+RUN apt-get install openssh-server systemd nano iputils-ping wget make autoconf gcc libc6 libgd-dev openssl libssl-dev  -yq
 
 FROM apache-server-build-stage AS prepare-file-stage
 
@@ -32,6 +32,7 @@ RUN wget --inet4-only --content-disposition 'https://github.com/nagios-plugins/n
 
 RUN tar -xzvf nagios-plugins-2.4.8.tar.gz
 RUN rm nagios-plugins-2.4.8.tar.gz
+
 
 WORKDIR /nagios-plugin-2.4.8
 
