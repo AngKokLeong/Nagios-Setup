@@ -12,7 +12,7 @@ RUN ls /usr/share/zoneinfo && \
 cp /usr/share/zoneinfo/Singapore /etc/localtime && \
 echo "Asia/Singapore" > /etc/timezone 
 
-RUN apt-get install openssh-server systemd nano iputils-ping -yq
+RUN apt-get install openssh-server systemd nano iputils-ping wget -yq
 
 FROM apache-server-build-stage AS prepare-file-stage
 
@@ -23,5 +23,8 @@ RUN useradd nagios -m -U
 # https://stackoverflow.com/questions/2150882/how-to-automatically-add-user-account-and-password-with-a-bash-script
 RUN echo nagios:password | chpasswd
 
+
+
 WORKDIR /
 
+# Setup Nagios Plugin 
