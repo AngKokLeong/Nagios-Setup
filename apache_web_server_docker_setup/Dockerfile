@@ -34,7 +34,7 @@ RUN tar -xzvf nagios-plugins-2.4.8.tar.gz
 RUN rm nagios-plugins-2.4.8.tar.gz
 
 
-WORKDIR /nagios-plugin-2.4.8
+WORKDIR /nagios-plugins-2.4.8
 
 RUN ./tools/setup
 
